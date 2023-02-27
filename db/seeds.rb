@@ -17,8 +17,9 @@ puts "Creating users"
 10.times {
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  email_address = "#{first_name}#{last_name}@gmail.com"
-  new_user = User.new(first_name:, last_name:, email_address:)
+  email = Faker::Internet.email # "#{first_name}#{last_name}@gmail.com"
+  password = "123456"
+  new_user = User.new(first_name:, last_name:, email:, password:)
   new_user.save!
 }
 puts "Finished creating users"
