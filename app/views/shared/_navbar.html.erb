@@ -23,7 +23,7 @@
               <!-- link_to "Your bookings", user_bookings_path, class: "dropdown-item" -->
               <li><hr class="dropdown-divider"></li>
               <!-- <li><a class="dropdown-item" href="#">Sign out</a></li> -->
-              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item"  %>
+              <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"  %>
             <% else %>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %></li>
