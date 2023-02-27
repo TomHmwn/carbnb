@@ -34,9 +34,10 @@ puts "Creating cars"
   brand = fake_car.first
   model = fake_car.last
   address = Faker::Address.street_address
-  image = "http://loremflickr.com/280/280/#{brand}#{model}"
   price_per_day = rand(50..100)
-  new_car = Car.new(color:, model:, brand:, price_per_day:, user_id:, address:, image:)
+  new_car = Car.new(color:, model:, brand:, price_per_day:, user_id:, address:)
+  new_car.photo.attach(io: URI.open("http://loremflickr.com/280/280/#{brand}#{model}"), filename: "#{brand}_#{model}.png", content_type: 'image/png');
+  p new_car.photo.attached?
   new_car.save!
 }
 puts "Finished creating cars"

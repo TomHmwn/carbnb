@@ -1,3 +1,4 @@
   <% @cars.each do |car|%>
     <%= render "components/card", car:car%>
   <% end %>
+  <%=link_to "add new car", new_car_path%>
