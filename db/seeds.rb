@@ -14,7 +14,7 @@ User.destroy_all
 
 # Creating users
 puts "Creating users"
-10.times {
+5.times {
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = Faker::Internet.email # "#{first_name}#{last_name}@gmail.com"
@@ -26,7 +26,7 @@ puts "Finished creating users"
 
 # Creating cars
 puts "Creating cars"
-10.times {
+5.times {
   # puts "#{User.all.sample}"
   user_id = User.all.sample.id
   color = Faker::Vehicle.color
@@ -36,8 +36,10 @@ puts "Creating cars"
   address = Faker::Address.street_address
   price_per_day = rand(50..100)
   new_car = Car.new(color:, model:, brand:, price_per_day:, user_id:, address:)
-  new_car.photo.attach(io: URI.open("http://loremflickr.com/280/280/#{brand}#{model}"), filename: "#{brand}_#{model}.png", content_type: 'image/png');
-  p new_car.photo.attached?
+  2.times do
+    new_car.photos.attach(io: URI.open("http://loremflickr.com/280/280/#{brand}#{model}"), filename: "#{brand}_#{model}.png", content_type: 'image/png');
+    p new_car.photos.attached?
+  end
   new_car.save!
 }
 puts "Finished creating cars"
