@@ -1,0 +1,16 @@
+<h1> Edit the details for this car </h1>
+
+<%= simple_form_for(@car) do |f| %>
+  <%= f.input :brand %>
+  <%= f.input :model %>
+  <%= f.input :color %>
+  <%= f.input :address %>
+  <%= f.input :price_per_day %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }, collection: @car.photos %>
+  <%= f.submit %>
+  <%= f.hidden_field :photos, value: f.object.photos if f.object.photos.attached? %>
+<% end %>
+
+
+<%# = f.file_field :doc
+= f.hidden_field :doc, value: f.object.doc.signed_id if f.object.doc.attached? %>

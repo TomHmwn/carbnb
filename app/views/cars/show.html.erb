@@ -16,5 +16,8 @@
   $<%=@car.price_per_day%>
 </div>
 <div>
+  <%# raise %>
   <%=@car.user.email%>
 </div>
+<%=link_to "edit this car", edit_car_path(@car.id)%>
+<%= link_to 'delete this car', car_path(@car.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{@car.user.first_name}'s #{@car.brand} #{@car.model}?"} %>
