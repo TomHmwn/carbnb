@@ -1,9 +1,30 @@
 <h1 class="text-center">Welcome to CarBNB</h1>
 <p class="text-center"> CarBNB is a car rental marketplace that connects car owners with people who need a car for a short period of time. </p>
+
 <% if user_signed_in? %>
   <p class="text-center"> Start browsing all cars below! </p>
   <div class="text-center">
     <%= link_to "View all cars", cars_path, class:"btn btn-primary" %>
+  </div>
+  <div class="container mx-auto">
+  <%# raise %>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% Car.all.each_with_index do |car, index| %>
+                    <div class="carousel-item <%= "active" if index.zero? %>">
+                        <img class="d-block w-100" src="<%= cl_image_path car.photos.first.key %>" alt="<%= index.ordinalize %> image">
+                    </div>
+                <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
 <% else %>
   <p class="text-center"> Click on <strong>Sign up / Log in in top left </strong> and get started! </p>
