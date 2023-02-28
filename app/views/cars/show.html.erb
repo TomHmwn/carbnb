@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container mx-auto">
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <% @car.photos.each_with_index do |photo, index| %>
                 <div class="carousel-item <%= "active" if index.zero? %>">
-                    <img class="d-block w-100 " src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
+                    <img class="d-block w-100" src="<%= cl_image_path photo.key %>" alt="<%= index.ordinalize %> image">
                 </div>
             <% end %>
   </div>
@@ -18,13 +18,12 @@
   </div>
 </div>
 
-<div>
+<div class="text-center p-4">
   <p><%="#{@car.color} #{@car.brand} #{@car.model}"%> </p>
   <p>$<%=@car.price_per_day%></p>
   <p><%=@car.address%></p>
   <p><%=@car.user.email%></p>
+  <%= link_to "Return to all cars", cars_path, class:"btn btn-primary" %>
+  <%= link_to "Edit This Car", edit_car_path(@car.id), class:"btn btn-warning"%>
+  <%= link_to "Delete This Car", car_path(@car.id),  data: {turbo_method: :delete, turbo_confirm: "Delete #{@car.user.first_name}'s #{@car.brand} #{@car.model}?"}, class:"btn btn-danger"%>
 </div>
-
-<%= link_to "Return to all cars", cars_path, class:"btn btn-primary" %>
-<%= link_to "Edit This Car", edit_car_path(@car.id), class:"btn btn-warning"%>
-<%= link_to "Delete This Car", car_path(@car.id),  data: {turbo_method: :delete, turbo_confirm: "Delete #{@car.user.first_name}'s #{@car.brand} #{@car.model}?"}, class:"btn btn-danger"%>

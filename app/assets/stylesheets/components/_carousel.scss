@@ -1,7 +1,16 @@
 .carousel-item{
   height: 500px;
-  margin-top: 20px;
+  width: 500px;
+  margin: 20px;
 }
 .carousel-item img{
+  width: 500px;
   height: 500px;
+  max-height: 500px;
+}
+
+.carousel{
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
 }
