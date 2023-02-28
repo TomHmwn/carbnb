@@ -12,8 +12,12 @@
     <div>
       <%= car.price_per_day%>
     </div>
-      <div>
-      <%= cl_image_tag car.photos.first.key, height: 300, width: 400, crop: :fill  %>
+    <div>
+      <% if car.photos.attached? %>
+        <%= cl_image_tag car.photos.first.key, height: 300, width: 400, crop: :fill  %>
+      <% else %>
+        <img src="https://st4.depositphotos.com/14953852/22772/v/1600/depositphotos_227725120-stock-illustration-image-available-icon-flat-vector.jpg" alt="no image found", height= "300", width= "400">
+      <% end %>
     </div>
     <div>
       <%= car.user.email%>
