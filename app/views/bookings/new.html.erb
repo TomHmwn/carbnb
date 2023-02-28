@@ -1,6 +1,1 @@
-<%= simple_form_for [@car, @booking]%>
-  <%= f.input :start_date, as: :date, label: "Start Date"%>
-  <%= f.input :end_date, as: :date, label: "End Date"%>
-  <%= f.input :price_total, label: "Price Total"%>
-  <%= f.button :submit, "Book"%>
-<% end %>
+<%=render 'form', car: @car, booking:@booking%>

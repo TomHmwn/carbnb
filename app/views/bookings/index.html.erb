@@ -1,10 +1,10 @@
 <% @bookings.each do |booking|%>
   <%=render "components/card", car:booking.car%>
   <div>
-    <%=booking.start_date%>
+    <%=booking.start_date.strftime("%d %m %y")%>
   </div>
   <div>
-    <%=booking.end_date%>
+    <%=booking.end_date.strftime("%d %m %y")%>
   </div>
   <div>
     <%=booking.price_total%>
