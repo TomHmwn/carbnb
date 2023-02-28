@@ -1,0 +1,22 @@
+<div id="<%= dom_id car %>">
+  <%=link_to car_path(car), class:"card" do  %>
+    <div>
+      <%= car.color %>
+    </div>
+    <div>
+      <%= car.model %>
+    </div>
+    <div>
+      <%= car.brand%>
+    </div>
+    <div>
+      <%= car.price_per_day%>
+    </div>
+      <div>
+      <%= cl_image_tag car.photos.first.key, height: 300, width: 400, crop: :fill  %>
+    </div>
+    <div>
+      <%= car.user.email%>
+    </div>
+  <% end %>
+</div>

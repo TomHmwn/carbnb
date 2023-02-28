@@ -1,0 +1,20 @@
+<div>
+  <% @car.photos.each do |photo|%>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+  <% end %>
+</div>
+<div>
+  <%=@car.brand%>
+</div>
+<div>
+  <%=@car.model%>
+</div>
+<div>
+  <%=@car.color%>
+</div>
+<div>
+  $<%=@car.price_per_day%>
+</div>
+<div>
+  <%=@car.user.email%>
+</div>
