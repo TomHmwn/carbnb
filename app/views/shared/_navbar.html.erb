@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid px-5">
-    <a class="navbar-brand" href="#">CARbnb</a>
+     <%= link_to "CARbnb", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,7 +17,7 @@
             </a>
           <% else %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Not signed in
+              Sign Up/Log in
             </a>
           <% end %>
           <!-- these links need fixing up/uncommenting after the appropriate routes have been created -->
