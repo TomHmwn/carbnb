@@ -16,3 +16,4 @@
 <%= link_to "Return to all cars", cars_path, class:"btn btn-primary" %>
 <%= link_to "Edit This Car", edit_car_path(@car.id), class:"btn btn-warning"%>
 <%= link_to "Delete This Car", car_path(@car.id),  data: {turbo_method: :delete, turbo_confirm: "Delete #{@car.user.first_name}'s #{@car.brand} #{@car.model}?"}, class:"btn btn-danger"%>
+<%= link_to "Book This Car", new_car_booking_path(@car), class:"btn btn-primary"%>
