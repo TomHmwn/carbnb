@@ -1,22 +1,16 @@
 <div>
   <% @car.photos.each do |photo|%>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+    <div>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+    </div>
   <% end %>
 </div>
+
 <div>
-  <%=@car.brand%>
-</div>
-<div>
-  <%=@car.model%>
-</div>
-<div>
-  <%=@car.color%>
-</div>
-<div>
-  $<%=@car.price_per_day%>
-</div>
-<div>
-  <%=@car.user.email%>
+  <p><%="#{@car.color} #{@car.brand} #{@car.model}"%> </p>
+  <p>$<%=@car.price_per_day%></p>
+  <p><%=@car.address%></p>
+  <p><%=@car.user.email%></p>
 </div>
 
 
