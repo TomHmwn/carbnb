@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :show, :destroy]
+  get "your_cars", to: "cars#your_cars", as: :users_cars
 end

@@ -23,13 +23,12 @@
           <!-- these links need fixing up/uncommenting after the appropriate routes have been created -->
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
-              <li><a class="dropdown-item" href="#">Your cars</a></li>
-              <!-- link_to "Your cars", user_cars_path, class: "dropdown-item" -->
-              <li><a class="dropdown-item" href="#">Your bookings</a></li>
-              <!-- link_to "Your bookings", user_bookings_path, class: "dropdown-item" -->
+              <!-- <a class="dropdown-item" href="#">Your cars</a> -->
+              <li><%= link_to "Your cars", users_cars_path, class: "dropdown-item" %></li>
+              <!--<li><a class="dropdown-item" href="#">Your bookings</a></li>-->
+              <li><%= link_to "Your bookings", bookings_path, class: "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
-              <!-- <li><a class="dropdown-item" href="#">Sign out</a></li> -->
-              <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"  %>
+              <li><%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"  %></li>
             <% else %>
               <li><%= link_to "Sign in", new_user_session_path, class: "dropdown-item" %></li>
               <li><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %></li>
