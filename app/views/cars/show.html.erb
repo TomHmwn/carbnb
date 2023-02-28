@@ -1,23 +1,18 @@
 <div>
   <% @car.photos.each do |photo|%>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+    <div>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill  %>
+    </div>
   <% end %>
 </div>
+
 <div>
-  <%=@car.brand%>
+  <p><%="#{@car.color} #{@car.brand} #{@car.model}"%> </p>
+  <p>$<%=@car.price_per_day%></p>
+  <p><%=@car.address%></p>
+  <p><%=@car.user.email%></p>
 </div>
-<div>
-  <%=@car.model%>
-</div>
-<div>
-  <%=@car.color%>
-</div>
-<div>
-  $<%=@car.price_per_day%>
-</div>
-<div>
-  <%# raise %>
-  <%=@car.user.email%>
-</div>
-<%=link_to "edit this car", edit_car_path(@car.id)%>
-<%= link_to 'delete this car', car_path(@car.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{@car.user.first_name}'s #{@car.brand} #{@car.model}?"} %>
+
+<%= link_to "Return to all cars", cars_path, class:"btn btn-primary" %>
+<%= link_to "Edit This Car", edit_car_path(@car.id)%>
+<%= link_to "Delete This Car", car_path(@car.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{@car.user.first_name}'s #{@car.brand} #{@car.model}?"} %>
