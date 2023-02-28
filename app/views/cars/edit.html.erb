@@ -11,6 +11,9 @@
   <%= f.hidden_field :photos, value: f.object.photos if f.object.photos.attached? %>
 <% end %>
 
+<%= link_to "Back", car_path(@car), class:"btn btn-primary mt-3"%>
+
+
 
 <%# = f.file_field :doc
 = f.hidden_field :doc, value: f.object.doc.signed_id if f.object.doc.attached? %>
