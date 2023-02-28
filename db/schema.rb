@@ -63,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_113746) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
