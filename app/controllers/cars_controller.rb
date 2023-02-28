@@ -1,6 +1,11 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all
+    if params[:query].present?
+      sql_query = "brand ILIKE :query OR model ILIKE :query"
+      @cars = Car.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @cars = Car.all
+    end
   end
 
   def new
@@ -35,6 +40,10 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @car.destroy
     redirect_to cars_path
+  end
+
+  def your_cars
+    @cars = Car.where(user: current_user)
   end
 
   private
