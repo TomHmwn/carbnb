@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
   def new
     @car = Car.find(params[:car_id])
     @booking = Booking.new
@@ -49,7 +50,21 @@ class BookingsController < ApplicationController
     # end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    @car = @booking.car
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+  end
+
   private
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
