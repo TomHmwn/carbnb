@@ -1,11 +1,15 @@
-<div class="card-product">
+<div id="car-card"class="card m-3 text-bg-dark bg-gradient" style="width: 18rem;">
+  <%=link_to car_path(car), class:"text-decoration-none" do%>
   <% if car.photos.attached? %>
-    <%= cl_image_tag car.photos.first.key, height: 300, width: 400, crop: :fill  %>
+    <%= cl_image_tag car.photos.first.key, height: 300, width: 400, crop: :fill, class:"card-img-top object-fit-cover" %>
   <% else %>
     <img src="https://st4.depositphotos.com/14953852/22772/v/1600/depositphotos_227725120-stock-illustration-image-available-icon-flat-vector.jpg" alt="no image found", height= "300", width= "400">
   <% end %>
-  <div class="card-product-infos">
-    <h2><%= link_to "#{car.color} #{car.brand} #{car.model}",car_path(car)%></h2>
-    <p><%= "#{car.address} | $#{car.price_per_day} per day" %></p>
+  <div class="card-body d-inline-flex flex-column">
+    <p class="card-text text-start fs-5 text-light"><%= "#{car.color} #{car.brand} #{car.model}"%></p>
+    <p class="card-text text-start text-info"><%= "#{car.address} " %></p>
+    <p class="text-light text-end fs-3 d-inline"><%="$#{car.price_per_day}"%></p>
+
   </div>
+  <% end %>
 </div>
