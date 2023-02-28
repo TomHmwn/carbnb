@@ -1,26 +1,10 @@
-<div>
-  <h1>Pages#home</h1>
-</div>
-
-
-
-
-<div class="container border border-3">
-  <div class="card">
-    <p>card #1 </p>
-    <%# Card should have cars info: brand model colour(?) image price_per_day %>
+<h1 class="text-center">Welcome to CarBNB</h1>
+<p class="text-center"> CarBNB is a car rental marketplace that connects car owners with people who need a car for a short period of time. </p>
+<% if user_signed_in? %>
+  <p class="text-center"> Start browsing all cars below! </p>
+  <div class="text-center">
+    <%= link_to "View all cars", cars_path, class:"btn btn-primary" %>
   </div>
-  <div class="card">
-    <p>card #2 </p>
-  </div>
-
-<%# @cars.each.do |car| %>
-  <%# <div class="card"> %>
-    <%# car.brand  %>
-    <%# car.model  %>
-    <%# car.image  %>
-    <%# car.price_per_day  %>
-  <%# </div> %>
-<%# end %>
-
-</div>
+<% else %>
+  <p class="text-center"> Click on the <strong>top right to sign up </strong> and get started! </p>
+<% end %>
