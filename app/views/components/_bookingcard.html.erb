@@ -8,8 +8,7 @@
     <h2><%= link_to "#{car.color} #{car.brand} #{car.model}",car_path(car)%></h2>
     <p><%= "#{car.address} | $#{car.price_per_day} per day" %></p>
     <p><%= "Owner: #{car.user.email}" %></p>
-    <% @bookings.each do |booking|%>
-    <p> From: <%=booking.start_date.strftime("%d %m %y")%> to: <%=booking.end_date.strftime("%d %m %y")%> </p>
-    <p> Total Cost: $<%=booking.price_total%> </p>
-    <% end %>
+    <p> From: <%= booking.start_date.strftime("%d %m %y")%> to: <%= booking.end_date.strftime("%d %m %y")%> </p>
+    <p> Total Cost: $<%= booking.price_total%> </p>
+  </div>
 </div>
