@@ -1,5 +1,5 @@
-<h1> Edit the details for this car </h1>
-
+<h1 class="text-center"> Edit the details for this car </h1>
+<div class="p-2">
 <%= simple_form_for(@car) do |f| %>
   <%= f.input :brand %>
   <%= f.input :model %>
@@ -7,13 +7,14 @@
   <%= f.input :address %>
   <%= f.input :price_per_day %>
   <%= f.input :photos, as: :file, input_html: { multiple: true }, collection: @car.photos %>
-  <%= f.submit %>
+  <%= f.submit class:"btn btn-success mt-3 m-1"%>
   <%= f.hidden_field :photos, value: f.object.photos if f.object.photos.attached? %>
 <% end %>
 
-<%= link_to "Back", users_cars_path, class:"btn btn-primary mt-3"%>
+<%= link_to "Back", users_cars_path, class:"btn btn-primary mt-3 m-1"%>
 
 
+</div>
 
 <%# = f.file_field :doc
 = f.hidden_field :doc, value: f.object.doc.signed_id if f.object.doc.attached? %>

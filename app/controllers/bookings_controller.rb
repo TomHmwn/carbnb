@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @car = Car.find(params[:car_id])
     @booking.car = @car
-    @booking.price_total = (@booking.end_date - @booking.start_date).to_i * @booking.car.price_per_day
+    @booking.price_total = (((@booking.end_date - @booking.start_date) / 1.day) * @booking.car.price_per_day)
 
     if @booking.save
       redirect_to bookings_path, status: :see_other, notice: "Booking was successfully created"
@@ -36,7 +36,13 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private
