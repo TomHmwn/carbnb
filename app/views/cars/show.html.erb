@@ -33,18 +33,12 @@
 </div>
 
 <h2 class="car-reviews-heading">Reviews of this car:</h2>
-<div class="car-reviews-container">
+<div class="allcontainer">
   <% @reviews.each do |review| %>
-    <div class="review-card">
-      <div class="review-card-header">
+    <div class="allcard">
         <p><%= review.user.first_name %> said on <%= review.created_at.strftime("%d %b %Y") %>:</p>
-      </div>
-      <div class="review-content">
         <p><%= review.content %></p>
-      </div>
-      <div class="review-rating">
         <p>This user gave the car <%= review.rating %> ⭐️</p>
-      </div>
     </div>
     <% end %>
   </div>
