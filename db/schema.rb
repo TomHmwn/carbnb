@@ -63,7 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_002356) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.string "car_type"
     t.string "fuel_type"
     t.string "transmission"
