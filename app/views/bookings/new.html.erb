@@ -1,3 +1,5 @@
-<%=render 'form', car: @car, booking:@booking%>
-
-<%= link_to "Back", car_path(@car), class:"btn btn-primary mt-3"%>
+<h1 class="text-center p-3"> Book a vehicle </h1>
+<div class="p-2">
+  <%=render 'form', car: @car, booking:@booking%>
+  <%= link_to "Back", car_path(@car), class:"btn btn-primary mt-3 m-1"%>
+</div>

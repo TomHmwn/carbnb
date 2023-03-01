@@ -1,20 +1,22 @@
-<h2 class="pt-3">Here are all your cars:</h2>
-<div class="container cards">
+<h2 class="p-3 text-center">Here are all your cars:</h2>
+<div class="allcontainer">
   <% @cars.each do |car| %>
+    <div class="allcard">
     <%= link_to car_path(car) do %>
       <div class="card-product rounded-3">
-        <% if car.photos[0].nil? %>
-          <%= 'No image :(' %>
-        <% else %>
           <%= cl_image_tag car.photos[0].key, height: 300, width: 400, crop: :fill %>
-        <% end %>
         <div class="car-card-info">
           <div><%= car.brand %></div>
           <div><%= car.model %></div>
           <div><%= car.color %></div>
           <div>$<%= car.price_per_day %> per day</div>
         </div>
+        <div class="car-buttons">
+          <%= link_to "Edit This Car", edit_car_path(car.id), class:"btn btn-warning"%>
+          <%= link_to "Delete This Car", car_path(car.id),  data: {turbo_method: :delete, turbo_confirm: "Delete #{car.user.first_name}'s #{car.brand} #{car.model}?"}, class:"btn btn-danger"%>
+        </div>
       </div>
     <% end %>
+    </div>
   <% end %>
 </div>

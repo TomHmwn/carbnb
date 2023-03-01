@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
   <div class="container-fluid px-5">
      <%= link_to "CARbnb", root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,7 @@
               <li><%= link_to "Your cars", users_cars_path, class: "dropdown-item" %></li>
               <!--<li><a class="dropdown-item" href="#">Your bookings</a></li>-->
               <li><%= link_to "Your bookings", bookings_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Bookings for your cars", users_cars_bookings_path, class: "dropdown-item" %></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item"  %></li>
             <% else %>

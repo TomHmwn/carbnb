@@ -21,6 +21,7 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    @reviews = Review.where(car: @car)
 
   end
 
@@ -47,12 +48,22 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
-    redirect_to cars_path
+    redirect_to users_cars_path
   end
 
   def your_cars
     @cars = Car.where(user: current_user)
   end
+
+  def your_car_bookings
+    @cars = Car.where(user: current_user)
+    @all_bookings = []
+    @cars.each do |car|
+      @all_bookings << car.bookings
+    end
+    @all_bookings
+  end
+
 
   private
 
