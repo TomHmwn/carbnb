@@ -3,9 +3,9 @@
 }
 
 .allcontainer {
-  margin: 10vh 10vw;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
@@ -20,6 +20,14 @@
   }
 }
 
-.review-card-header, .review-content, .review-rating {
+.carcard {
+  background-color: #f5f5f5;
+  border-radius: 5px;
   text-align: center;
+  color: black;
+  margin: auto;
+  width: 600px;
+  p {
+    margin: 1rem 0;
+  }
 }
