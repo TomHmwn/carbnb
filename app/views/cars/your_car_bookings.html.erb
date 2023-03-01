@@ -1,15 +1,14 @@
-<div class="text-center p-3">
-<h1>Bookings for your cars: </h1>
-</div>
-<div class="car-reviews-container">
-<% @all_bookings.each do |car_bookings| %>
-  <% car_bookings.each do |booking| %>
-  <div class="review-card">
-    <p>Booking for your <%= booking.car.color %> <%= booking.car.brand %> <%= booking.car.model %> :</p></li>
-      <%= cl_image_tag booking.car.photos[0].key, height: 300, width: 400, crop: :fill %>
+<h1 class="text-center p-3"> Bookings for your cars: </h1>
+
+<div class="allcontainer">
+  <% @all_bookings.each do |car_bookings| %>
+    <% car_bookings.each do |booking| %>
+      <div class="allcard">
+     <p>Booking for your <%= booking.car.color %> <%= booking.car.brand %> <%= booking.car.model %> :</p></li>
+      <%= cl_image_tag booking.car.photos.first.key, height: 300, width: 400, crop: :fill %>
       <p>Booking date: <%= booking.start_date.strftime("%d %b %Y") %> to <%= booking.end_date.strftime("%d %b %Y")%></p>
       <p>Total booking price: $<%= booking.price_total %> AUD </p>
-    <% end %>
     </div>
+    <% end %>
   <% end %>
 </div>
