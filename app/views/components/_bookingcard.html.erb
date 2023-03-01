@@ -10,5 +10,6 @@
     <p><%= "Owner: #{car.user.email}" %></p>
     <p> From: <%= booking.start_date.strftime("%d %m %y")%> to: <%= booking.end_date.strftime("%d %m %y")%> </p>
     <p> Total Cost: $<%= booking.price_total%> </p>
+    <p> Approval status: <%= booking.status %></p>
   </div>
 </div>

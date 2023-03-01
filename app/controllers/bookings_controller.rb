@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :accept_booking, :decline_booking]
   def new
     @car = Car.find(params[:car_id])
     @booking = Booking.new
@@ -37,6 +37,18 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     redirect_to bookings_path
+  end
+
+  def accept_booking!
+    # @booking.accepted!
+    @booking.update(status: "accepted")
+    redirect_to root_path
+  end
+
+  def decline_booking!
+    # @booking.declined!
+    @booking.update(status: "declined")
+    redirect_to root_path
   end
 
   def destroy
