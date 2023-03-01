@@ -2,9 +2,9 @@
 <div class="card text-bg-dark" style="height: 30vh; background-position: center; background-size: cover; background-image: url('https://source.unsplash.com/random/?cars')">
   <div class="row">
     <%# <img src="https://source.unsplash.com/random/?cars" alt="cars-wallpaper" class="card-img img-fluid img-responsive object-fit-cover"> %>
-    <div class=" card-img-overlay">
-      <h1 class="card-title"> CarBNB - View all Cars </h1>
-      <%=link_to "List a New Car", new_car_path, class: "btn btn-primary"%>
+    <div class="card-img-overlay top-50 text-center">
+      <h1 data-controller="typed-js" class="card-title"></h1>
+      <%=link_to "List a New Car", new_car_path, class: "btn btn-primary card-text"%>
     </div>
   </div>
 </div>

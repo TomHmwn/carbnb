@@ -1,7 +1,9 @@
-<div class="text-center p-20px">
+<div class="text-center p-20px mb-5">
   <%=render "shared/banner"%>
 </div>
+<div class="container d-flex flex-wrap align-items-center">
+    <% @cars.each do |car|%>
+      <%= render "components/card", car:car%>
+    <% end %>
 
-<% @cars.each do |car|%>
-  <%= render "components/card", car:car%>
-<% end %>
+</div>

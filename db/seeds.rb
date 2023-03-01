@@ -33,9 +33,17 @@ puts "Creating cars"
   fake_car = Faker::Vehicle.make_and_model.split
   brand = fake_car.first
   model = fake_car.last
+  car_type = Faker::Vehicle.car_type
+  fuel_type = Faker::Vehicle.fuel_type
+  transmission = Faker::Vehicle.transmission
+  drive_type = Faker::Vehicle.drive_type
+  year = rand(1990..2021)
+  standard_specs = Faker::Vehicle.standard_specs.join(", ")
+  kilometrage = rand(1000..100000)
+  doors = rand(2..5)
   address = Faker::Address.street_address
   price_per_day = rand(50..100)
-  new_car = Car.new(color:, model:, brand:, price_per_day:, user_id:, address:)
+  new_car = Car.new(color:, model:, brand:, price_per_day:, user_id:, address:, car_type:, fuel_type:, transmission:, drive_type:, year:, standard_specs:, kilometrage:, doors:)
   2.times do
     new_car.photos.attach(io: URI.open("https://source.unsplash.com/random/?#{brand},#{model}"),
                           filename: "#{brand}_#{model}.png", content_type: 'image/png')
