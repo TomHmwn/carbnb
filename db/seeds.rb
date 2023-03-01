@@ -14,6 +14,8 @@ Booking.destroy_all
 
 # Creating users
 puts "Creating users"
+new_user = User.new(first_name:"John", last_name:"Doe", email:"johndoe@gmail.com", password:"password")
+new_user.save!
 5.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
