@@ -2,18 +2,18 @@
   text-align: center;
 }
 
-.car-reviews-container {
+.allcontainer {
   margin: 10vh 10vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 
-.review-card {
+.allcard {
   background-color: #f5f5f5;
   border-radius: 5px;
   padding: 15px;
-  text-align: left;
+  text-align: center;
   color: black;
   p {
     margin: 1rem 0;
