@@ -1,1 +1,9 @@
-<%=render 'form', car: @car, booking:@booking%>
+<%# <%=render 'form', car: @car, booking:@booking%>
+<%= simple_form_for @booking do |f|%>
+  <% f.object.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+  <%= f.input :start_date, as: :date, label: "Start Date"%>
+  <%= f.input :end_date, as: :date, label: "End Date"%>
+  <%= f.button :submit%>
+<% end %>
