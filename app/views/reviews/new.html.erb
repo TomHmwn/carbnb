@@ -1,6 +1,6 @@
 <h1>Add a review for this car</h1>
 <%= simple_form_for [@car, @review] do |f| %>
   <%= f.input :rating %>
-  <%= f.input :comment %>
-  <%= f.submit %>
+  <%= f.input :content %>
+  <%= f.submit "Submit review" %>
 <% end %>
