@@ -1,0 +1,16 @@
+<h1>Bookings for your cars: </h1>
+<ul>
+  <% @all_bookings.each do |car_bookings| %>
+    <% car_bookings.each do |booking| %>
+      <%# raise %>
+      <li><p>Booking for your <%= booking.car.color %> <%= booking.car.brand %> <%= booking.car.model %> :</p></li>
+      <% if booking.car.photos[0].nil? %>
+          <%= 'No image :(' %>
+      <% else %>
+          <%= cl_image_tag booking.car.photos[0].key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <p>Booking date: <%= booking.start_date.strftime("%d %b %Y") %> to <%= booking.end_date.strftime("%d %b %Y")%></p>
+      <p>Total booking price: $<%= booking.price_total %> AUD </p>
+    <% end %>
+  <% end %>
+</ul>

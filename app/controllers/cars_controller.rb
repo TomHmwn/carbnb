@@ -46,6 +46,16 @@ class CarsController < ApplicationController
     @cars = Car.where(user: current_user)
   end
 
+  def your_car_bookings
+    @cars = Car.where(user: current_user)
+    @all_bookings = []
+    @cars.each do |car|
+      @all_bookings << car.bookings
+    end
+    @all_bookings
+  end
+
+
   private
 
   def set_car
