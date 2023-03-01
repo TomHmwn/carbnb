@@ -1,3 +1,6 @@
+<h1 class="text-center p-3"> List a new car </h1>
+
+<div class="p-2">
 <%= simple_form_for(@car) do |f| %>
   <%= f.input :brand %>
   <%= f.input :model %>
@@ -5,7 +8,7 @@
   <%= f.input :address %>
   <%= f.input :price_per_day %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
+  <%= f.submit class:"btn btn-success mt-3 m-1"%>
 <% end %>
-
-<p> <%= link_to "Return to all cars", cars_path, class:"btn btn-primary mt-3" %> </p>
+<%= link_to "Return to all cars", cars_path, class:"btn btn-primary mt-3 m-1" %>
+</div>
