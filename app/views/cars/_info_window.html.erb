@@ -1,0 +1,15 @@
+<%= link_to car_path(car), class:"rounded-5 border-0 card text-center text-decoration-none" do %>
+  <% if car.photos.attached? %>
+    <%= cl_image_tag car.photos.first.key, crop: :fill, class:"card-img-top object-fit-cover w-100 mb-2" %>
+  <% else %>
+    <img src="https://st4.depositphotos.com/14953852/22772/v/1600/depositphotos_227725120-stock-illustration-image-available-icon-flat-vector.jpg" alt="no image found", class="card-img-top object-fit-cover w-100 mb-2">
+  <% end %>
+  <div class="d-flex flex-column ">
+    <h2 class="text-dark"><%= "#{car.brand} #{car.model}" %></h2>
+    <div class="d-flex justify-content-between">
+      <p class="fs-6 text-dark"><%= car.address %></p>
+      <p class="fs-3 text-dark"><%= "$ #{car.price_per_day}" %></p>
+    </div>
+  </div>
+  <%# link_to 'See more', flat_path(flat), class: 'btn btn-primary' %>
+<% end %>
