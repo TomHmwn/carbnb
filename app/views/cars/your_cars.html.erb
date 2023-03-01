@@ -14,6 +14,10 @@
           <div><%= car.color %></div>
           <div>$<%= car.price_per_day %> per day</div>
         </div>
+        <div class="car-buttons">
+          <%= link_to "Edit This Car", edit_car_path(car.id), class:"btn btn-warning"%>
+          <%= link_to "Delete This Car", car_path(car.id),  data: {turbo_method: :delete, turbo_confirm: "Delete #{car.user.first_name}'s #{car.brand} #{car.model}?"}, class:"btn btn-danger"%>
+        </div>
       </div>
     <% end %>
   <% end %>
