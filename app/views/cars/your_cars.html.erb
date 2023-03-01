@@ -1,22 +1,33 @@
 <h2 class="p-3 text-center">Here are all your cars:</h2>
-<div class="allcontainer">
+<div class="container-md d-flex flex-wrap justify-content-center">
   <% @cars.each do |car| %>
-    <div class="allcard">
-    <%= link_to car_path(car) do %>
-      <div class="card-product rounded-3">
-          <%= cl_image_tag car.photos[0].key, height: 300, width: 400, crop: :fill %>
-        <div class="car-card-info">
-          <div><%= car.brand %></div>
-          <div><%= car.model %></div>
-          <div><%= car.color %></div>
-          <div>$<%= car.price_per_day %> per day</div>
+    <div id="your-car"class="card border border-white rounded-5 m-2" style="width: 500px">
+      <%= link_to car_path(car), class:"text-decoration-none" do %>
+        <div class="card-img-top">
+          <%= cl_image_tag car.photos[0].key,width:"500", crop: :fit %>
         </div>
-        <div class="car-buttons">
+        <div class="card-body">
+          <div class="fs-2 text-light fw-semibold"><%= "#{car.brand} #{car.model}"%></div>
+          <div class="text-info mb-4"><%= "#{car.transmission}" %></div>
+          <div class="d-flex flex-wrap">
+            <div class="text-light d-inline p-2 m-1 border border-white rounded-5"><%= "Door: #{car.doors}" %></div>
+            <div class="text-light d-inline p-2 m-1 border border-white rounded-5"><%= "#{car.car_type}" %></div>
+            <div class="text-light d-inline p-2 m-1 border border-white rounded-5"><%= "#{car.fuel_type}" %></div>
+            <div class="text-light d-inline p-2 m-1 border border-white rounded-5"><%= "#{car.kilometrage}" %></div>
+            <div class="text-light d-inline p-2 m-1 border border-white rounded-5"> <%= car.color %></div>
+          </div>
+          <div class="mt-4 d-flex flex-column">
+            <div class="p-2 text-light"><%= "#{car.address}" %></div>
+            <div class="p-2 text-light"><%= "#{car.year}" %></div>
+            <div class="p-2 text-light align-self-end fs-3">$<%= car.price_per_day %> per day</div>
+          </div>
+
+        </div>
+        <div class="card-footer d-flex justify-content-end">
           <%= link_to "Edit This Car", edit_car_path(car.id), class:"btn btn-warning"%>
           <%= link_to "Delete This Car", car_path(car.id),  data: {turbo_method: :delete, turbo_confirm: "Delete #{car.user.first_name}'s #{car.brand} #{car.model}?"}, class:"btn btn-danger"%>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>

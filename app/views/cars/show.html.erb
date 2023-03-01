@@ -1,5 +1,5 @@
 <div class="carcard">
-<h1 class="text-center p-3"> <%="#{@car.color} #{@car.brand} #{@car.model}"%> </h1>
+<h1 class="text-center p-3"> <%="#{@car.brand} #{@car.model}"%> </h1>
 <div class="container mx-auto">
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -25,6 +25,15 @@
   <p>Location: <%=@car.address%></p>
   <p>Contact Name: <%=@car.user.first_name %></p>
   <p>Contact Email: <%=@car.user.email%> </p>
+  <div class=""><%= "Door: #{@car.doors}" %></div>
+
+  <div class=""><%= "#{@car.car_type}" %></div>
+  <div class=""><%= "#{@car.fuel_type}" %></div>
+  <div class=""><%= "#{@car.kilometrage}" %></div>
+  <div class=""><%= "#{@car.transmission}" %></div>
+  <div class=""><%= "#{@car.color}" %></div>
+  <div class=""><%= "#{@car.year}" %></div>
+  <div class=""><%= "#{@car.standard_specs}" %></div>
   <%= link_to "Return to all cars", cars_path, class:"btn btn-primary m-2" %>
   <%= link_to "Make a booking", new_car_booking_path(@car), class:"btn btn-success m-2"%>
   <%= link_to "Review This Car", new_car_review_path(@car.id), class:"btn btn-warning m-2"%>
