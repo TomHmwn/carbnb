@@ -14,6 +14,7 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    @reviews = Review.where(car: @car)
   end
 
   def create
