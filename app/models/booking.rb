@@ -25,7 +25,7 @@ class Booking < ApplicationRecord
     end
   end
   def car_is_not_already_booked_for_this_period
-    if car.bookings.any? { |booking| booking.start_date < end_date && booking.end_date > start_date }
+    if car.bookings.any? { |booking| booking.start_date < end_date && booking.end_date > start_date && booking != self }
       errors.add(:car, "is already booked")
     end
   end

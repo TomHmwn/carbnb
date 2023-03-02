@@ -35,8 +35,15 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    redirect_to bookings_path
+
+    if @booking.update(booking_params)
+      @booking.price_total = (((@booking.end_date - @booking.start_date) / 1.day) * @booking.car.price_per_day)
+      @booking.save
+      redirect_to bookings_path, notice: "Booking was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+    # redirect_to bookings_path
   end
 
   def destroy
