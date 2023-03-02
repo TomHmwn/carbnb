@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy, :accept_booking, :decline_booking]
+  before_action :set_booking, only: %i[show edit update destroy accept decline]
   def new
     @car = Car.find(params[:car_id])
     @booking = Booking.new
@@ -10,7 +10,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def create
@@ -29,13 +28,10 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = Booking.find(params[:id])
     @car = @booking.car
   end
 
   def update
-    @booking = Booking.find(params[:id])
-
     if @booking.update(booking_params)
       @booking.price_total = (((@booking.end_date - @booking.start_date) / 1.day) * @booking.car.price_per_day)
       @booking.save
@@ -59,10 +55,26 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path
   end
+
+  def accept
+    if @booking.status_accepted!
+      redirect_to users_cars_bookings_path, notice: 'Booking accepted'
+    else
+      redirect_to users_cars_bookings_path, notice: 'Booking could not be accepted - please try again'
+    end
+  end
+
+  def decline
+    if @booking.status_declined!
+      redirect_to users_cars_bookings_path, notice: 'Booking declined'
+    else
+      redirect_to users_cars_bookings_path, notice: 'Booking could not be declined - please try again'
+    end
+  end
+
 
   private
 

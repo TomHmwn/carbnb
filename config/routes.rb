@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :destroy, :edit, :update]
+  patch "bookings/:id/accept", to: "bookings#accept", as: :accept_booking
+  patch "bookings/:id/decline", to: "bookings#decline", as: :decline_booking
   get "your_cars", to: "cars#your_cars", as: :users_cars
   get "your_car_bookings", to: "cars#your_car_bookings", as: :users_cars_bookings
   patch "your_car_bookings", to: "bookings#accept_booking!", as: :accept_booking

@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_031858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.integer "status", default: 0
     t.index ["car_id"], name: "index_bookings_on_car_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -65,7 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_031858) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.string "car_type"
     t.string "fuel_type"
     t.string "transmission"

@@ -25,16 +25,15 @@
   <% if current_user != @car.user %>
     <p>Owner contact name: <%=@car.user.first_name %></p>
     <p>Contact Email: <%=@car.user.email%> </p>
-  <p><em><strong>$<%=@car.price_per_day%> per day</strong></em></p>
   <% end %>
+  <p><em><strong>$<%=@car.price_per_day%> per day</strong></em></p>
   <div class="row align-items-center border-top border-bottom p-1">
     <div class="col"><%= "#{@car.doors} door #{@car.car_type}" %></div>
     <div class="col"><%= "#{@car.fuel_type}" %></div>
     <div class="col"><%= "#{@car.transmission}" %></div>
     <div class="col"><%= "#{@car.kilometrage} km" %></div>
-    <% raise %>
   </div>
-  <div class="text-start"><p>Description: <%= "#{@car.standard_specs}" %></p></div>
+  <div class="text-start px-4"><p>Description: <%= "#{@car.standard_specs}" %></p></div>
   <%= link_to "Return to all cars", cars_path, class:"btn btn-primary m-2" %>
   <%= link_to "Make a booking", new_car_booking_path(@car), class:"btn btn-success m-2"%>
   <% if current_user != @car.user %>
@@ -46,10 +45,10 @@
 
 </div>
 <% if @car.reviews.length != 0 %>
-  <h2 class="car-reviews-heading py-2">Reviews of this car:</h2>
-  <div class="allcontainer">
-    <div class="allcard">
+  <h2 class="car-reviews-heading py-4">Reviews of this car:</h2>
+  <div class="allcontainer flex justify-content-center">
     <% @reviews.each do |review| %>
+      <div class="allcard w-25">
           <p><%= review.user.first_name %> said on <%= review.created_at.strftime("%d %b %Y") %>:</p>
           <p><%= review.content %></p>
           <p>This user gave the car <%= review.rating %> ⭐️</p>
