@@ -26,19 +26,24 @@ new_user.save!
 end
 puts "Finished creating users"
 
+TRANSMISSION = %w[Automatic Manual]
+FUEL_TYPE = %w[Petrol Diesel Electric Hyrbid]
+CAR_TYPE = %w[Sedan Hachback Convertible Coupe Sports Minivan Van SUV StationWagon Truck]
+DRIVE_TYPE = %w[All-wheel Four-wheel Front-wheel Rear-wheel]
+
 # Creating cars
 puts "Creating cars"
-5.times do
+10.times do
   # puts "#{User.all.sample}"
   user_id = User.all.sample.id
   color = Faker::Vehicle.color
   fake_car = Faker::Vehicle.make_and_model.split
   brand = fake_car.first
   model = fake_car.last
-  car_type = Faker::Vehicle.car_type
-  fuel_type = Faker::Vehicle.fuel_type
-  transmission = Faker::Vehicle.transmission
-  drive_type = Faker::Vehicle.drive_type
+  car_type = CAR_TYPE.sample
+  fuel_type = FUEL_TYPE.sample
+  transmission = TRANSMISSION.sample
+  drive_type = DRIVE_TYPE.sample
   year = rand(1990..2021)
   standard_specs = Faker::Vehicle.standard_specs.join(", ")
   kilometrage = rand(1000..100000)
