@@ -1,8 +1,8 @@
-<%= simple_form_for [car, booking] do |f|%>
+<%= simple_form_for [car, booking], data: { controller: 'flatpickr' } do |f|%>
   <% f.object.errors.full_messages.each do |error| %>
     <p><%= error %></p>
   <% end %>
-  <%= f.input :start_date, as: :date, label: "Start Date"%>
-  <%= f.input :end_date, as: :date, label: "End Date"%>
+  <%= f.input :start_date, as: :string, label: "Start Date" , input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%= f.input :end_date, as: :string, label: "End Date" , input_html: { data: { flatpickr_target: "endTime" } }%>
   <%= f.button :submit,  class: "btn btn-success p-2 m-1" %>
 <% end %>
