@@ -9,6 +9,20 @@
       <p>Booking date: <%= booking.start_date.strftime("%d %b %Y") %> to <%= booking.end_date.strftime("%d %b %Y")%></p>
       <p>Total booking price: $<%= booking.price_total %> AUD </p>
       <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <div class="">
+        <%if booking.status_pending?%>
+          <p>Booking status: <%= booking.status %></p>
+          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success" %>
+          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger" %>
+        <% elsif booking.status_accepted? %>
+          <p>Booking status: <%= booking.status %></p>
+          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger", data: {turbo_method: :patch}%>
+        <% elsif booking.status_declined? %>
+          <p>Booking status: <%= booking.status %></p>
+          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success", data: {turbo_method: :patch} %>
+
+        <% end %>
+      </div>
     </div>
     <% end %>
   <% end %>

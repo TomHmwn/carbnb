@@ -9,6 +9,8 @@ class Booking < ApplicationRecord
   validate :car_is_not_already_booked_for_this_period
   validate :user_is_not_booking_his_own_car
 
+  enum :status, { pending: 0, accepted: 1, declined: 2 }, prefix: true
+
   def start_date_cannot_be_in_the_past
     if start_date < Date.today
       errors.add(:start_date, "can't be in the past")

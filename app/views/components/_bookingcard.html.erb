@@ -6,6 +6,13 @@
       <p class="fs-6 h-1 mb-0 text-light"><%= "#{car.address}" %></p>
       <p class="fs-6 h-1 mb-0 text-light"><%= "Owner: #{car.user.email}" %></p>
       <p class="fs-6 h-1 mb-0 text-light"> From: <%= booking.start_date.strftime("%d %m %y")%> to: <%= booking.end_date.strftime("%d %m %y")%> </p>
+      <%if booking.status_accepted?%>
+        <div class="btn btn-success my-2"><%="#{booking.status}"%></div>
+        <% elsif booking.status_declined? %>
+        <div class="btn btn-danger my-2"><%="#{booking.status}"%></div>
+        <% elsif booking.status_pending? %>
+        <div class="btn btn-info my-2"><%="#{booking.status}"%></div>
+      <% end %>
     </div>
       <p class="fs-4 h-1 mb-0 text-light flex-shrink-1 ">$<%= booking.price_total%> </p>
   </div>
