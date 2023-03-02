@@ -1,5 +1,13 @@
-<% @bookings.each do |booking|%>
-  <%= render "components/bookingcard", car:booking.car, booking:booking%>
-  <%= link_to "Edit Booking", edit_booking_path(booking), class:"btn btn-warning mt-3" %>
-  <%= link_to "Delete This Booking", booking_path(booking),  data: {turbo_method: :delete, turbo_confirm: "Delete this booking?"}, class:"btn btn-danger mt-3"%>
-<% end %>
+<div class="text-center p-3">
+  <h1>Your Bookings: </h1>
+</div>
+
+<div class="allcontainer">
+  <% @bookings.each do |booking|%>
+    <div class="allcard">
+    <%= render "components/bookingcard", car:booking.car, booking:booking%>
+    <%= link_to "Edit Booking", edit_booking_path(booking), class:"btn btn-warning mt-3" %>
+    <%= link_to "Delete This Booking", booking_path(booking),  data: {turbo_method: :delete, turbo_confirm: "Delete this booking?"}, class:"btn btn-danger mt-3"%>
+    </div>
+  <% end %>
+</div>

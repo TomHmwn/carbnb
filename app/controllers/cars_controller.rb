@@ -6,6 +6,13 @@ class CarsController < ApplicationController
     else
       @cars = Car.all
     end
+    @markers = @cars.geocoded.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {car: car})
+      }
+    end
   end
 
   def new
@@ -15,6 +22,7 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     @reviews = Review.where(car: @car)
+
   end
 
   def create
@@ -40,7 +48,7 @@ class CarsController < ApplicationController
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
-    redirect_to cars_path
+    redirect_to users_cars_path
   end
 
   def your_cars
