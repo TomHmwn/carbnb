@@ -8,6 +8,7 @@
       <%= cl_image_tag booking.car.photos.first.key, height: 300, width: 400, crop: :fill %>
       <p>Booking date: <%= booking.start_date.strftime("%d %b %Y") %> to <%= booking.end_date.strftime("%d %b %Y")%></p>
       <p>Total booking price: $<%= booking.price_total %> AUD </p>
+      <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
     </div>
     <% end %>
   <% end %>
