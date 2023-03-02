@@ -8,11 +8,12 @@
   <%= f.input :color %>
   <%= f.input :year %>
   <%= f.input :doors %>
-  <%= f.input :car_type %>
-  <%= f.input :fuel_type %>
-  <%= f.input :transmission %>
-  <%= f.input :kilometrage %>
   <%= f.input :address %>
+  <%= f.input :car_type, collection: Car::CAR_TYPE %>
+  <%= f.input :fuel_type, collection: Car::FUEL_TYPE %>
+  <%= f.input :transmission, collection: Car::TRANSMISSION %>
+  <%= f.input :drive_type, collection: Car::DRIVE_TYPE %>
+  <%= f.input :kilometrage %>
   <%= f.input :price_per_day %>
   <%= f.input :standard_specs, label:"Description of car" %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
