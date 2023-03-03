@@ -1,13 +1,21 @@
-<h1 class="text-center">Welcome to CarBNB</h1>
-<p class="text-center"> CarBNB is a car rental marketplace that connects car owners with people who need a car for a short period of time. </p>
-
-<% if user_signed_in? %>
-  <p class="text-center"> Start browsing all cars below! </p>
-  <div class="text-center">
-    <%= link_to "View all cars", cars_path, class:"btn btn-primary" %>
+<div class="rootpage-banner text-bg-dark">
+  <div class="banner-text p-3 mb-6 text-center">
+    <h1 class="mb-3">Welcome to CarBNB</h1>
+    <p> CarBNB is a car rental marketplace that connects car owners with people who need a car for a short period of time. </p>
+    <p><%= link_to "Click here", new_user_session_path, class: "rootpage-signup-link" %> to sign up and get started! </p>
   </div>
+</div>
+
+
+
+<div class="landing-page-footer">
+  <h6>Made by Tom, Andy, Viet, and Max</h6>
+  <p class="text-center secret-link"><a href="https://www.youtube.com/watch?v=9bZkp7q19f0" target="_blank">secret link ;)</a></p>
+</div>
+
+<div>
+<!--
   <div class="container mx-auto">
-  <%# raise %>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <% Car.all.each_with_index do |car, index| %>
@@ -26,6 +34,5 @@
       </button>
     </div>
   </div>
-<% else %>
-  <p class="text-center"> Click <strong><%= link_to "Sign up / Log in", new_user_session_path %> </strong> and get started! </p>
-<% end %>
+  -->
+</div>
