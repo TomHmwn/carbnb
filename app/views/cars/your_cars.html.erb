@@ -4,7 +4,7 @@
     <div id="your-car"class="card border border-white rounded-5 m-2" style="width: 500px">
       <%= link_to car_path(car), class:"text-decoration-none" do %>
         <div class="card-img-top">
-          <%= cl_image_tag car.photos[0].key,width:"500", crop: :fit, class:"object-fit-cover" %>
+          <%= cl_image_tag car.photos[0].key,width:"498", crop: :fit, class:"object-fit-cover" %>
         </div>
         <div class="card-body">
           <div class="fs-2 text-light fw-semibold"><%= "#{car.brand} #{car.model}"%></div>
