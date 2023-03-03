@@ -11,10 +11,16 @@
       <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
       <p>Booking status: <%= booking.status %></p>
       <div class="">
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Booking status
-          </button>
-          <%=render "modal", booking: booking%>
+      <%if booking.status_pending?%>
+          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success", data: {turbo_method: :patch} %>
+          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger", data: {turbo_method: :patch, turbo_confirm: "Are your sure?"}%>
+        <!-- Button trigger modal -->
+        <% elsif booking.status_accepted? %>
+          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger", data: {turbo_method: :patch, turbo_confirm: "Are your sure?"}%>
+        <% elsif booking.status_declined?%>
+          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success", data: {turbo_method: :patch} %>
+        <% end %>
+          <%# <%=render "modal", booking: booking%>
 
       </div>
     </div>
