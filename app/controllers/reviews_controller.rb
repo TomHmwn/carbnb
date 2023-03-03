@@ -10,9 +10,9 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.car = @car
     if @review.save
-      redirect_to car_path(@car)
+      redirect_to car_path(@car), notice: "Review saved"
     else
-      render :new, status: :unprocessable_entity, notice: "Review not saved"
+      redirect_to car_path(@car), status: :unprocessable_entity, notice: "Review not saved"
     end
   end
 

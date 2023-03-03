@@ -17,12 +17,4 @@
       <p class="fs-4 h-1 mb-0 text-light flex-shrink-1 ">$<%= booking.price_total%> </p>
   </div>
   <% end %>
-  <div class="card-product-infos">
-    <h2><%= link_to "#{car.color} #{car.brand} #{car.model}",car_path(car)%></h2>
-    <p><%= "#{car.address} | $#{car.price_per_day} per day" %></p>
-    <p><%= "Owner: #{car.user.email}" %></p>
-    <p> From: <%= booking.start_date.strftime("%d %m %y")%> to: <%= booking.end_date.strftime("%d %m %y")%> </p>
-    <p> Total Cost: $<%= booking.price_total%> </p>
-    <p> Approval status: <%= booking.status %></p>
-  </div>
 </div>
