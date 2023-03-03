@@ -11,16 +11,9 @@
       <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
       <p>Booking status: <%= booking.status %></p>
       <div class="">
-        <%if booking.status_pending?%>
-          <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Booking pending
+            Booking status
           </button>
-        <%elsif booking.status_accepted?%>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Booking change
-          </button>
-        <% end %>
           <%=render "modal", booking: booking%>
 
       </div>
