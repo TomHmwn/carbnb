@@ -8,7 +8,11 @@
       <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-center">
         <li class="nav-item">
           <%# <a class="nav-link active" aria-current="page" href="#">Home</a> %>
-          <%= link_to "Home", root_path, class: "nav-link active" %>
+          <% if user_signed_in? %>
+            <%= link_to "Home", cars_path, class: "nav-link active" %>
+          <% else %>
+            <%= link_to "Home", root_path, class: "nav-link active" %>
+          <% end %>
         </li>
         <li class="nav-item dropdown">
           <% if user_signed_in? %>
