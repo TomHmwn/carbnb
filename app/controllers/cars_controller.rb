@@ -22,7 +22,7 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     @reviews = Review.where(car: @car)
-
+    @new_review = Review.new
   end
 
   def create
