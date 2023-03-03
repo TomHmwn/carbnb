@@ -9,19 +9,20 @@
       <p>Booking date: <%= booking.start_date.strftime("%d %b %Y") %> to <%= booking.end_date.strftime("%d %b %Y")%></p>
       <p>Total booking price: $<%= booking.price_total %> AUD </p>
       <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <p>Booking status: <%= booking.status %></p>
       <div class="">
         <%if booking.status_pending?%>
-          <p>Booking status: <%= booking.status %></p>
-          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success", data: {turbo_method: :patch} %>
-          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger", data: {turbo_method: :patch}%>
-        <% elsif booking.status_accepted? %>
-          <p>Booking status: <%= booking.status %></p>
-          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger", data: {turbo_method: :patch}%>
-        <% elsif booking.status_declined? %>
-          <p>Booking status: <%= booking.status %></p>
-          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success", data: {turbo_method: :patch} %>
-
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Booking pending
+          </button>
+        <%elsif booking.status_accepted?%>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Booking change
+          </button>
         <% end %>
+          <%=render "modal", booking: booking%>
+
       </div>
     </div>
     <% end %>
