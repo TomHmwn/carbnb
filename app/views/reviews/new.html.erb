@@ -1,6 +1,10 @@
-<h1>Add a review for this car</h1>
-<%= simple_form_for [@car, @review] do |f| %>
-  <%= f.input :rating, label: "How many stars out of 5?" %>
-  <%= f.input :content, label: "Please add a comment about your review" %>
-  <%= f.submit "Submit review" %>
-<% end %>
+<h1 class="p-4 text-center">Add a review for this car</h1>
+<div class="container">
+  <%= simple_form_for [@car, @review] do |f| %>
+    <%= f.input :content, label: "Please add a comment about your review" %>
+    <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating"}}, label: "How many stars out of 5?" %>
+    <div class="py-4">
+      <%= f.submit "Submit review" %>
+    </div>
+  <% end %>
+</div>

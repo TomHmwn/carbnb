@@ -1,27 +1,25 @@
-<h1 class="text-center"> Edit the details for this car </h1>
-<div class="p-2 container">
-<%= simple_form_for(@car) do |f| %>
-  <%= f.input :brand %>
-  <%= f.input :model %>
-  <%= f.input :color %>
-  <%= f.input :year %>
-  <%= f.input :doors %>
-  <%= f.input :address %>
-  <%= f.input :car_type, collection: Car::CAR_TYPE %>
-  <%= f.input :fuel_type, collection: Car::FUEL_TYPE %>
-  <%= f.input :transmission, collection: Car::TRANSMISSION %>
-  <%= f.input :drive_type, collection: Car::DRIVE_TYPE %>
-  <%= f.input :standard_specs, label:"Description of car" %>
-  <%= f.input :kilometrage %>
-  <%= f.input :price_per_day %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true }, collection: @car.photos %>
-  <%= f.input :photos, value: f.object.photos if (f.object.photos.attached? && f.object.photos.length == f.object.photos) %>
-  <%= f.submit class:"btn btn-success mt-3 m-1"%>
-<% end %>
+<h1 class="text-center p-4"> Edit the details for this car </h1>
+<div class="container">
+  <%= simple_form_for(@car) do |f| %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :color %>
+    <%= f.input :year %>
+    <%= f.input :doors %>
+    <%= f.input :address %>
+    <%= f.input :car_type, collection: Car::CAR_TYPE %>
+    <%= f.input :fuel_type, collection: Car::FUEL_TYPE %>
+    <%= f.input :transmission, collection: Car::TRANSMISSION %>
+    <%= f.input :drive_type, collection: Car::DRIVE_TYPE %>
+    <%= f.input :standard_specs, label:"Description of car" %>
+    <%= f.input :kilometrage %>
+    <%= f.input :price_per_day %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, collection: @car.photos %>
+    <%# <%= f.hidden_field :photos, value: f.object.photos if (f.object.photos.attached?) %>
+    <%= f.submit class:"btn btn-success mt-3 m-1"%>
+  <% end %>
 
-<%= link_to "Back", users_cars_path, class:"btn btn-primary mt-3 m-1"%>
-
-
+  <%= link_to "Back", users_cars_path, class:"btn btn-primary mt-3 m-1"%>
 </div>
 
 <%# = f.file_field :doc

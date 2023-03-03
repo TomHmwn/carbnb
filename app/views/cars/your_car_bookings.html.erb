@@ -1,4 +1,4 @@
-<h1 class="text-center p-3"> Bookings for your cars: </h1>
+<h1 class="text-center p-4"> Bookings for your cars: </h1>
 
 <div class="allcontainer">
   <% @all_bookings.each do |car_bookings| %>
@@ -12,8 +12,8 @@
       <div class="">
         <%if booking.status_pending?%>
           <p>Booking status: <%= booking.status %></p>
-          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success" %>
-          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger" %>
+          <%= link_to "Accept booking", accept_booking_path(booking), class:"btn btn-success", data: {turbo_method: :patch} %>
+          <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger", data: {turbo_method: :patch}%>
         <% elsif booking.status_accepted? %>
           <p>Booking status: <%= booking.status %></p>
           <%= link_to "reject booking", decline_booking_path(booking), class:"btn btn-danger", data: {turbo_method: :patch}%>
