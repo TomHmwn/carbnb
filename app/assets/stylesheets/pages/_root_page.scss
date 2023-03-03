@@ -1,0 +1,21 @@
+.rootpage-signup-link {
+  text-decoration: none;
+}
+
+.rootpage-banner {
+  background-image: url('https://source.unsplash.com/random/?cars');
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 55px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-text {
+  border-radius: 50px;
+  backdrop-filter: blur(7px);
+  border: 2px solid white;
+  box-shadow: 8px 8px 20px 1px rgba(0, 0, 0, .1);
+}
