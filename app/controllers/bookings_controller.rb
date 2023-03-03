@@ -42,6 +42,18 @@ class BookingsController < ApplicationController
     # redirect_to bookings_path
   end
 
+  def accept_booking!
+    # @booking.accepted!
+    @booking.update(status: "accepted")
+    redirect_to root_path
+  end
+
+  def decline_booking!
+    # @booking.declined!
+    @booking.update(status: "declined")
+    redirect_to root_path
+  end
+
   def destroy
     @booking.destroy
     redirect_to bookings_path
