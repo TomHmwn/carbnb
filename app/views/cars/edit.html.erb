@@ -15,7 +15,7 @@
     <%= f.input :kilometrage %>
     <%= f.input :price_per_day %>
     <%= f.input :photos, as: :file, input_html: { multiple: true }, collection: @car.photos %>
-    <%= f.hidden_field :photos, value: f.object.photos if (f.object.photos.attached?)
+    <%= f.hidden_field :photos, value: f.object.photos if (f.object.photos.attached?) %>
     <%= f.submit class:"btn btn-success mt-3 m-1"%>
   <% end %>
 
